@@ -1,0 +1,37 @@
+.open RacialRoast.db
+
+CREATE TABLE chistes (
+id INT NOT NULL PRIMARY KEY,
+text TEXT
+);
+
+CREATE TABLE categoria(
+id INT NOT NULL PRIMARY KEY,
+tag VARCHAR(3)
+);
+
+CREATE TABLE chisteCategoria(
+id_chiste INT NOT NULL,
+id_categoria INT NOT NULL,
+FOREIGN KEY(id_chiste) REFERENCES chiste(id),
+FOREIGN KEY(id_categoria) REFERENCES chiste(id),
+PRIMARY KEY (id_chiste, id_categoria)
+);
+
+
+INSERT INTO chistes VALUES (1, 'CHISTE1');
+INSERT INTO chistes VALUES (2, 'CHISTE2');
+INSERT INTO chistes VALUES (3, 'CHISTE3');
+INSERT INTO chistes VALUES (4, 'CHISTE4');
+INSERT INTO chistes VALUES (5, 'CHISTE5');
+
+INSERT INTO categoria VALUES (1, 'CA1');
+INSERT INTO categoria VALUES (2, 'CA2');
+INSERT INTO categoria VALUES (3, 'CA3');
+INSERT INTO categoria VALUES (4, 'CA4');
+
+INSERT INTO chisteCategoria VALUES (1,1);
+INSERT INTO chisteCategoria VALUES (2,2);
+INSERT INTO chisteCategoria VALUES (3,3);
+INSERT INTO chisteCategoria VALUES (4,4);
+INSERT INTO chisteCategoria VALUES (5,1);
